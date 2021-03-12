@@ -3,13 +3,30 @@
 --sandy:#b7832f;
 --main-text:  #707070;
  --off-white: ivory;
+ --btn-gradient: linear-gradient(90deg,
+ turquoise,
+ rgb(255, 196, 0),
+ rgb(238, 8, 115),
+ purple);
+--bg-gradient: linear-gradient( 45deg,
+rgb(139, 241, 139),
+#f8b73e,
+ivory,
+#FFBA8F,
+#f5a36d);
 }
 body {
   font-size 1.125em;
   font-family: Arial, Helvetica, sans-serif, sans-serif;
   color:var(--main-text);
   margin: 0;
-  background-color: var(--off-white);
+  background-image:var(--bg-gradient);
+  background-size: 400%;
+  animation: bg-animation 10s infinite alternate;
+}
+@keyframes bg-animation{
+  0%{background-position:left}
+  100%{background-position:right}
 }
 
 @media (max-width:600px) {
@@ -28,6 +45,27 @@ h1{
 h1 span{
 color:var(--sandy)
 }
+.howdy{
+  z-index:1;
+  margin: 0.5rem;
+  text-transform: uppercase;
+  font-style: bold;
+  font-weight: 900;
+  font-size: 6rem;
+  color:var(--sandy);
+  line-height: 0.8;
+  background-image:var(--btn-gradient);
+  -webkit-background-clip: text;
+  color: transparent;
+  background-position:right;
+  background-size: 200%;
+  transition: background-position 1s;
+}
+.howdy:hover{
+  background-position:center;
+}
+
+
 p{
   margin-top: 0;
 }
@@ -36,9 +74,38 @@ h2{
 }
 /*Layout*/
 img {
+  position: relative;
   max-width: 100%;
 }
-.container {
+.invitation{
+position: relative;
+display: flex;
+flex-direction: column;
+}
+.intro{
+  width: 50%;
+  top: 10rem;
+  }
+.yellow-btn {
+cursor:pointer;
+border:0;
+font-size: 1.5rem;
+color: white;
+text-transform: uppercase;
+font-family: sans-serif;
+font-weight: 600;
+padding: 1rem;
+border-radius: 0.3rem;
+background-image: var(--btn-gradient);
+background-position:left;
+background-size: 200%;
+transition: background-position 1s;
+}
+.yellow-btn:hover,
+.yellow-btn:focus{
+  background-position: right;
+}
+  .container {
   max-width: 1200px;
   width: 95%;
   margin: auto;
