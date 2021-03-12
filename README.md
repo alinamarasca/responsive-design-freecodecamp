@@ -7,7 +7,7 @@ Create responsive layout Following freeCodeCamp tutorial [Introduction to Respon
 
 ## Step 2: add something
 
-  - [ ]   add gradient background (responsive)
+  - [ ]   add animated gradient background (responsive)
   - [ ]   add text over the image
   - [ ]   change color palette for mobile device
 
