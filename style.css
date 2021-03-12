@@ -2,38 +2,38 @@
 --side-bkgr:#08693c;
 --sandy:#b7832f;
 --main-text:  #707070;
- --off-white: ivory;
- --btn-gradient: linear-gradient(90deg,
- turquoise,
- rgb(255, 196, 0),
- rgb(238, 8, 115),
- purple);
+--off-white: ivory;
+--btn-gradient: linear-gradient(90deg,
+turquoise,
+rgb(255, 196, 0),
+rgb(238, 8, 115),
+purple);
 --bg-gradient: linear-gradient( 45deg,
 rgb(139, 241, 139),
 #f8b73e,
-ivory,
 #FFBA8F,
 #f5a36d);
+}
+*{
+  margin:0;
+  padding:0;
+}
+.container{
+width: 100vw; 
+height: 100vh; 
 }
 body {
   font-size 1.125em;
   font-family: Arial, Helvetica, sans-serif, sans-serif;
   color:var(--main-text);
-  margin: 0;
   background-image:var(--bg-gradient);
   background-size: 400%;
-  animation: bg-animation 10s infinite alternate;
-}
+  animation: bg-animation 3s infinite alternate;
+    }
+
 @keyframes bg-animation{
   0%{background-position:left}
   100%{background-position:right}
-}
-
-@media (max-width:600px) {
-  body{
-    background-color: rgb(183, 252, 143);
-  }
-  
 }
 /*Typography*/
 h1{
@@ -41,19 +41,18 @@ h1{
   color:var(--side-bkgr);
   text-align: center;
   font-weight: 300;
+  padding: 1.5rem;
 }
 h1 span{
 color:var(--sandy)
 }
 .howdy{
   z-index:1;
-  margin: 0.5rem;
   text-transform: uppercase;
   font-style: bold;
   font-weight: 900;
-  font-size: 6rem;
+  font-size: 5rem;
   color:var(--sandy);
-  line-height: 0.8;
   background-image:var(--btn-gradient);
   -webkit-background-clip: text;
   color: transparent;
@@ -61,13 +60,16 @@ color:var(--sandy)
   background-size: 200%;
   transition: background-position 1s;
 }
+  
+
 .howdy:hover{
   background-position:center;
 }
 .bg-yellow {
-  background-color:var(--sandy);
+  background-color: rgba(245, 208, 89, 0.5);
   font-size: 2rem;
   color: white;
+  margin: 2rem;
 }
 
 p{
@@ -77,37 +79,92 @@ h2{
   color: var(--side-bkgr);
 }
 /*Layout*/
-img {
+/*img {
   position: relative;
   max-width: 100%;
-}
+}*/
 .invitation{
 position: relative;
+width: 100%;
+height: 30rem;
 display: flex;
-flex-direction: column;
+flex-direction:column;
+/*background-color: yellowgreen;*/
+align-items: flex-end;
+
 }
-.intro{
-  
-  top: 10rem;
+@media (max-width:1090px){
+  .invitation{
+    align-items: center;
   }
-.yellow-btn {
-cursor:pointer;
-border:0;
-font-size: 1.5rem;
-color: white;
-text-transform: uppercase;
-font-family: sans-serif;
-font-weight: 600;
-padding: 1rem;
-border-radius: 0.3rem;
-background-image: var(--btn-gradient);
-background-position:left;
-background-size: 200%;
-transition: background-position 1s;
 }
-.yellow-btn:hover,
-.yellow-btn:focus{
-  background-position: right;
+
+.invitation::before{
+position:absolute;
+width: 100%;
+height: 100%;
+content:"";
+background-image: url(images/bumblebee.jpg);
+background-size: 100%;
+top:0px;
+left:0px;
+z-index:-3;
+background-repeat:no-repeat;
+
+}
+
+.inner{
+  display: flex;
+  flex-direction: column;
+  clear:none;
+  width: 40%;
+  align-content: center;
+  }
+ 
+.yellow-btn {
+  cursor:pointer;
+  border:0;
+  font-size: 1.5rem;
+  color: white;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  font-weight: 600;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  background-image: var(--btn-gradient);
+  background-position:left;
+  background-size: 200%;
+  transition: background-position 1s;
+  width:fit-content;
+  margin: auto;
+  padding-bottom: 1rem;
+  }
+  .yellow-btn:hover,
+  .yellow-btn:focus{
+    background-position: right;
+  }
+  @media(max-width:1100px) {
+    .inner{
+    width:100%;
+    text-align: center;
+    }
+  }
+@media(max-width:490px) {
+    .invitation {
+    width:100%;
+        }
+  .intro{
+  margin: 0;
+  width: 100%;
+     }
+  .bg-yellow{
+    padding-top: 0;
+    font-size: 1.125rem;
+    background-color: var(--sandy);
+        }
+  .howdy {
+    padding-bottom: 0;
+  }
 }
   .container {
   max-width: 1200px;
@@ -121,8 +178,9 @@ transition: background-position 1s;
   margin: 1em 0;
 }
 @media (max-width:600px) {
-  .columns{
-    flex-direction: column;
+  .columns, {
+flex-direction: column;
+align-items: stretch;
   }
 }
 .col-1{
